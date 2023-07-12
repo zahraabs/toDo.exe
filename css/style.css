@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.container{
+    width: 80%;
+    background-color: rgb(73, 68, 68);
+    margin: 150px auto;
+    padding: 1.5rem;
+}
+
+.container .form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form input{
+    padding: 1rem 1.5rem;
+    width: 20rem;
+}
+
+.form input:focus{
+    outline: none;
+}
+button{
+    width: 15rem;
+    padding: 1rem 1.5rem;
+}
+
+.toDo p , .done p{
+    font-size: 2rem;
+    color: white;
+    padding: 1rem;
+}
+
+.list{
+    list-style: none;
+}
+
+.list li{
+    padding: 1rem;
+ 
+    margin: 1.5rem 0;
+    font-size: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: blueviolet;
+    color: white;
+   border-radius: 5px;
+  
+}
+
+.list li div{
+    text-align: left;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: .5rem;
+
+}
+
+.list input , .list label , .list li i{
+    cursor: pointer;
+}
+
+.done label{
+    text-decoration: line-through;
+}
