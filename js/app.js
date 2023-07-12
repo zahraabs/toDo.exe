@@ -10,67 +10,16 @@ list.addEventListener("click", icons)
 document.forms[0].addEventListener("submit", addItem);
 addEventListener("click" , saveEditedItem);
 
-
-// for (var i = 0; i < closeIcons.length; i++) {  // به جای اینکه این حلقه ی فور را بنویسیم و دوباره یک فانکشن تعریف کنیم برای حدف ایکون ها از روش کلوزایکون استفاده می کنیم 
-//    closeIcons[i].addEventListener("click" , closeIcon);
-
-// }
-
-
 // add item
 function addItem(event) {
     event.preventDefault();
     var text = inputTask.value;
-    // list.innerHTML += `<li>
-    //                     <div>
-    //                     <input type="checkbox" name="item" id="item1" /><label for="item1"
-    //                         >${inputTask.value}</label
-    //                     >
-    //                     </div>
-    // <div class="icons"><i class='bx bx-edit'></i>
-    // //                     <i class="bx bx-x"></i></div>
-
-    //                   </li>`;
-    // به جای خطوط بالا می توان از این پایینی ها استفاده کرد
+    
     // create new items in list
     if (text != "") {
-        // var newLiElement = document.createElement("li");
-        // var newDivElement = document.createElement("div");
-        // var newIconDivElement = document.createElement("div");
-        // var newInputElement = document.createElement("input");
-        // newInputElement.type = "checkbox";
-        // newInputElement.name = "item";
-
-        // var newLabelElement = document.createElement("label");
-
-        // var newLabelText = document.createTextNode(inputTask.value);
-        // var newIcon = document.createElement("i");
-        // var newEditIcon = document.createElement("i");
-
-        // newLiElement.appendChild(newDivElement);
-        // newLiElement.appendChild(newIconDivElement);
-
-        // newIconDivElement.appendChild(newEditIcon);
-        // newIconDivElement.appendChild(newIcon);
-        // newDivElement.appendChild(newInputElement);
-        // newDivElement.appendChild(newLabelElement);
-        // newLabelElement.appendChild(newLabelText);
-        // newIcon.className = "bx bx-x";
-        // newEditIcon.className = "bx bx-edit";
-        // newIconDivElement.classList = "icons";
-
-        // list.appendChild(newLiElement);
-        // // create new id for each input and label
-        // var item = list.querySelectorAll(".toDo li");
-        // for (var i = 0; i < item.length; i++) {
-        //     newInputElement.id = `item${i}`;
-        //     newLabelElement.htmlFor = `item${i}`;
-        // }
         addToStorage(text);
         showAllSavedItem();
     }
-
-
 
     inputTask.value = '';
     inputTask.focus();
