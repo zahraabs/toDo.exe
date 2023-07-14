@@ -4,7 +4,6 @@ var inputTask = document.querySelector(".form input");
 var list = document.querySelector(".toDo .list");
 var closeIcons = document.querySelectorAll(".toDo i");
 var completedTasksHolder = document.querySelector(".done .list");
-// var isDone = false;
 
 showAllSavedItem();
 // add event
@@ -47,14 +46,25 @@ function icons(e) {
 // add old items to local storage
 function addToStorage(text) {
     var currentNames = oldItems();
+    // var completedNames = oldItems();
     var date = new Date();
     var newItem = {
         id: date.getTime(),
         content: text,
+        isComplete: false
     }
 
+    // newItem.isComplete = !newItem.isComplete;
+    
+    //  var completeItem = {
+    //     id: date.getTime(),
+    //     content: key,
+    // }
+
     currentNames.push(newItem);
-    localStorage.setItem("names", JSON.stringify(currentNames))
+    // completedNames.push(completeItem);
+    localStorage.setItem("names", JSON.stringify(currentNames));
+    // localStorage.setItem("names", JSON.stringify(completedNames));
 }
 
 // get old names and return an array
@@ -96,7 +106,6 @@ function deleteItem(id) {
         if (old[i].id == id) {
             old.splice(i, 1);
         }
-
     }
     localStorage.setItem("names", JSON.stringify(old))
 }
@@ -143,8 +152,18 @@ function taskCompleted() {
     var listItem = this.parentNode.parentNode;
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
-
-
+    // var oldNames;
+    // oldNames = JSON.parse(localStorage.getItem("names"));
+    // oldNames[0].isComplete = !oldNames[0].isComplete;
+    // for (var i = 0; i < oldNames.length; i++) {
+    //     if (oldNames[0].isComplete == true) {
+    //         oldNames.splice(i, 1);
+    //     }
+    //     localStorage.setItem("names", JSON.stringify(oldNames));
+       
+    // }
+   
+    
     // ***********************************************************
     // listItem.children[1].children[0].remove();
 }
@@ -171,7 +190,6 @@ submit.addEventListener("click", addItem);
 
 
 function bindTaskEvents(taskListItem, checkBoxEventHandler) {
-    //    console.log("Bind List item events");
     // select listitems chidlren
     var checkBox = taskListItem.querySelector('input[type="checkbox"]');
     var editIcon = taskListItem.querySelector("i.bx-edit");
